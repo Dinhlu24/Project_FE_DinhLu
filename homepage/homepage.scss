@@ -1,0 +1,338 @@
+*:not(i) {
+    font-family: "Open Sans", sans-serif !important;
+}
+
+
+body {
+    background-color: #F8F9FA;
+}
+
+.homepage_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+
+    .left {
+        flex: 1;
+        width: 220px;
+        height: 100%;
+        position: fixed;
+
+        .side_bar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-color: #2F4050;
+
+            .icon {
+                width: 220px;
+                height: 156px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 190px;
+                    height: 44px;
+                }
+            }
+
+            .small_icon {
+                width: 30px;
+                height: 30px;
+                background-color: rgba($color: #FFFFFF1A, $alpha: 10%);
+                color: #A7B1C2;
+                border-radius: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center
+            }
+
+            .side_bar_navs {
+                flex: 1;
+                width: 100%;
+
+                nav {
+                    width: 100%;
+                    height: 50px;
+                    padding: 16px;
+                    display: flex;
+                    align-items: center;
+                    gap: 7px;
+                }
+
+                .nav_text {
+                    color: #A7B1C2;
+                }
+            }
+
+            footer {
+                width: 100%;
+                height: 50px;
+                padding: 16px;
+                background-color: #12896D;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+
+                .footer_icon,
+                .foorter_text {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .right {
+        width: 100%;
+        height: 100%;
+        margin-left: 220px;
+
+        header {
+            width: 100%;
+            height: 150px;
+            background-color: white;
+            color: #888888;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            nav {
+                flex: 1;
+                height: 50%;
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .nav_bars {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #1AB394;
+                    border-radius: 3px;
+                    color: white;
+                    width: 46px;
+                    height: 32px;
+                }
+
+                .user_info {
+                    max-width: 151.9px;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    .small_box {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        width: 8px;
+                        height: 4px;
+                        background-color: #bdbdbd;
+                        border-color: #A7B1C2;
+                    }
+                }
+            }
+
+            .header_info {
+                flex: 1;
+                height: 50%;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+                .page_title {
+                    font-size: 24px;
+                }
+
+                .page_text {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        main {
+            width: 100%;
+            height: 100%;
+            height: 1440px;
+            flex: 2;
+
+            .main_container {
+                padding: 20px;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                border-radius: 5px;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .page_render {
+                    align-self: flex-end;
+
+                    .page_button {
+                        background-color: white;
+                        padding: 5px 11px;
+                        border: 1px solid #DDDDDD;
+                        color: #676A6C;
+                    }
+
+                    .page_button.page_choice {
+                        background-color: rgba($color: #000000, $alpha: 0.1);
+                    }
+                }
+
+                .main_title {
+                    color: #676A6C;
+
+                    .title {
+                        font-size: 20px;
+                    }
+
+                    .text {
+                        font-size: 12px;
+                    }
+                }
+
+                .main_tools {
+                    width: 100%;
+                    height: 34px;
+                    display: flex;
+                    align-items: center;
+
+                    .search {
+                        flex: 1;
+                    }
+
+                    .sort {}
+
+                    .sort_by_category {}
+                }
+
+                .main_border {
+                    width: 100%;
+                    height: 100%;
+                    margin-top: 20px;
+
+                    .row {
+                        margin-bottom: 20px;
+                    }
+
+
+                    .recipes_card {
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                        height: 240px;
+                        border-radius: 5px;
+                        display: flex;
+
+                        .card_left {
+                            width: 100%;
+                            padding: 10px;
+                            flex: 1;
+
+                            .community_recipes {
+                                width: 150px;
+                                height: 28.5px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 8.7px;
+                                font-weight: 900;
+                                font-size: 11px;
+                                border-radius: 5px;
+                                color: #EA9F77;
+                                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+                                img {
+                                    width: 14px;
+                                    height: 14px;
+                                }
+                            }
+                        }
+
+                        .card_right {
+                            width: 100%;
+                            height: 100%;
+                            flex: 2;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+
+                            .card_header {
+                                flex: 2;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                                width: 100%;
+                                color: #676A6C;
+                                padding: 21px;
+                                border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+                                .card_title {
+                                    color: #282828;
+                                    font-weight: 700;
+                                    max-width: 70%;
+                                }
+
+                                .card_user_info {
+                                    padding: 2.5px 24px 10.25px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    width: 100%;
+
+                                    .heart_box {
+                                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                                        width: 60px;
+                                        height: 28px;
+                                        border-radius: 4;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        gap: 6px;
+                                    }
+                                }
+
+                                .card_container {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 4px;
+                                }
+                            }
+
+                            .card_paragraph {
+                                flex: 1;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+
+                                .info_title {
+                                    color: #888888;
+                                }
+
+                                .info_quote {
+                                    display: flex;
+                                    justify-content: center;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+
+            }
+        }
+
+    }
+}
