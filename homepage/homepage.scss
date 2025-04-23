@@ -12,6 +12,14 @@ body {
     height: 100vh;
     display: flex;
 
+    .sidebar-collapsed {
+        display: none;
+    }
+
+    .main-expanded {
+        margin-left: 0 !important;
+    }
+
 
     .left {
         flex: 1;
@@ -70,6 +78,20 @@ body {
                 .nav_text {
                     color: #A7B1C2;
                 }
+
+                .current_page {
+                    background-color: #293846;
+
+                    .small_icon {
+                        background-color: #12896D;
+                        color: white;
+                    }
+
+                    .nav_text {
+                        color: white;
+                    }
+                }
+
             }
 
             footer {
@@ -120,6 +142,11 @@ body {
                     color: white;
                     width: 46px;
                     height: 32px;
+                    cursor: pointer;
+                }
+
+                .nav_bars:hover {
+                    background-color: #03aa88;
                 }
 
                 .user_info {
