@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="detail.css" />
+  </head>
+  <body>
+    <div class="detail_container">
+      <div class="left">
+        <div class="side_bar">
+          <div class="icon">
+            <img src="../../assets/nutriumicon.png" alt="" />
+          </div>
+          <!--  -->
+          <div class="side_bar_navs">
+            <nav onclick="window.location.href = '../../homepage'">
+              <div class="nav_icon small_icon">
+                <i class="fa-solid fa-house"></i>
+              </div>
+              <div class="nav_text">Homepage</div>
+            </nav>
+            <nav onclick="window.location.href ='../../ingredients'">
+              <div class="nav_icon small_icon">
+                <img src="../../assets/Foods.svg" alt="" />
+              </div>
+              <div class="nav_text">Foods</div>
+            </nav>
+            <nav
+              class="current_page"
+              onclick="window.location.href ='../../recipes'"
+            >
+              <div class="nav_icon small_icon">
+                <img src="../../assets/recipesIcon.svg" alt="" />
+              </div>
+              <div class="nav_text">Recipes</div>
+            </nav>
+          </div>
+          <!--  -->
+          <footer>
+            <div class="footer_icon small_icon">
+              <i class="fa-solid fa-user-plus fa-flip-horizontal"></i>
+            </div>
+            <div class="foorter_text">Sign out</div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="right">
+        <header>
+          <nav>
+            <div class="nav_bars" onclick="openSideBar()">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="user_info">
+              Cường Trần
+              <div class="small_box">-</div>
+            </div>
+          </nav>
+          <!--  -->
+          <span class="header_info">
+            <span class="page_title">Recipes</span>
+            <span class="page_text">Create, check and update recipes</span>
+          </span>
+        </header>
+        <!--  -->
+        <main>
+          <!--  -->
+          <div class="main_top">
+            <div class="top_card">
+              <div class="card">
+                <div class="card_header">
+                  <div class="community_recipes">
+                    <img src="../../assets/Group.svg" alt="" />
+                    <div>Community Recipes</div>
+                  </div>
+                  <div class="heart_box">
+                    <i class="fa-regular fa-heart"></i>
+                    <div class="heart_count">37</div>
+                  </div>
+                </div>
+                <!--  -->
+                <div
+                  class="card_footer"
+                  id="categoryFooter"
+                  onclick="showSelect()"
+                >
+                  <img src="../../assets/tag.svg" alt="" />
+                  <div class="card_categories_info" id="categoryText">
+                    Vegetarian dishes
+                  </div>
+                </div>
+
+                <select
+                  id="categorySelect"
+                  style="display: none"
+                  onchange="selectOption()"
+                >
+                  <option disabled selected>
+                    Thêm mới hoặc chọn từ dropdown
+                  </option>
+                  <option>Desserts</option>
+                  <option>Breakfast and snacks</option>
+                  <option>Appetizers and side dishes</option>
+                  <option>Soups</option>
+                  <option>Meat dishes</option>
+                  <option>Fish dishes</option>
+                  <option>Vegetarian dishes</option>
+                </select>
+              </div>
+
+              <div class="add_to_favorite">
+                <div class="favorites_box">
+                  <i class="fa-solid fa-heart"></i>
+                  <div>Add to favourite</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box_basic_info">
+              <div class="form_title">
+                <div style="font-size: 22px">Basic information</div>
+                <div style="font-size: 14px">
+                  Check and edit recipe's basic information
+                </div>
+              </div>
+
+              <div class="form_inputs">
+                <form id="form_input">
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Name</span>
+                    <input
+                      type="text"
+                      value="Ackee, canned, drained"
+                      class="form-control w-70"
+                      name="name"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30" style="height: 62px"
+                      >Description</span
+                    >
+                    <textarea
+                      class="form-control w-70 single-break"
+                      name="description"
+                      rows="2"
+                    >
+Our roasted cauliflower salad with turmeric is low in calories and packed with punchy flavor.Turmeric adds lovely color and to this easy vegan-friendly recipe</textarea
+                    >
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Author</span>
+                    <input
+                      type="text"
+                      value="Joana Jardim"
+                      class="form-control w-70"
+                      name="author"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Total time</span>
+                    <input
+                      type="text"
+                      value="00:40"
+                      class="form-control w-70"
+                      name="totalTime"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Preparation time</span>
+                    <input
+                      type="text"
+                      value="00:40"
+                      class="form-control w-70"
+                      name="preparationTime"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Final weight</span>
+                    <input
+                      type="text"
+                      value="978.8 grams"
+                      class="form-control w-70"
+                      name="finalWeight"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Portions</span>
+                    <input
+                      type="text"
+                      value="4"
+                      class="form-control w-70"
+                      name="portions"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="main_middle">
+            <div class="middle_title">
+              <div style="font-size: 22px; color: white">Creation</div>
+              <div class="middle_quote">
+                Create the recipe and choose the ingredients
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="main_bottom">
+            <div class="bottom_left">
+              <div class="left_top">
+                <div class="left_title">
+                  <div style="font-size: 22px; color: black">Ingredients</div>
+                  <div>Search and add ingredients to the recipe</div>
+                </div>
+                <form id="form_input">
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value='1 chopped cup (1/2" pieces) of cauliflower, raw (107 g)'
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="1 tsp of spices, turmeric, ground (3 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="1 tbsp of olive oil (14 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="100 grams of rice, brown, medium-grain, raw"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="150 grams of edamame, frozen, unprepared"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="1 cup, sections of lemons, raw, without peel (212 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="1 cup slices of cucumber, with peel, raw (104 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="4 tbsps of parsley, fresh (15 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="50 grams of nuts, cashew nuts, oil roasted, with salt added"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="5 tbsps of vinegar, balsamic (80 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="4 tbsps of soy sauce made from soy (tamari) (72 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="1 tablespoon of oil, sesame, salad or cooking (14 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="1 tbsp of sauce, fish, ready-to-serve (18 g)"
+                  />
+                  <input
+                    type="text"
+                    name="ingredient"
+                    class="form-control"
+                    value="2 tbsps of syrups, maple (40 g)"
+                  />
+                </form>
+              </div>
+              <!--  -->
+              <div class="left_bottom">
+                <div class="cooking_method_box">
+                  <div class="left_title">
+                    <div style="font-size: 22px; color: black">
+                      Cooking method
+                    </div>
+                    <div>Give instructions to prepare this recipe</div>
+                  </div>
+                  <div class="text_box">
+                    <form id="form_input">
+                      <div class="input-group">
+                        <span class="input-group-text" style="height: 134px"
+                          >1</span
+                        >
+                        <textarea
+                          class="form-control single-break"
+                          name="description"
+                          rows="5"
+                        >
+STEP 1 Heat the oven to 200C/fan 180C/gas 6. Put the cauliflower in an ovenproof dish or tin, add the turmeric,some seasoning and 2 tbsp oil, and toss together. Roast for 20-25 minutes until tender. Tip onto a plate and cool.STEP 2 Meanwhile boil the rice in salted water until tender, adding the edamame for the last minute of cooking,then drain well. Leave to cool, then tip into a large bowl. Add the roasted cauliflower, lemon juice, cucumber and some seasoning, and toss together. Add the herbs and toss again. Add mint for extra flavor. STEP 3 Whisk together the dressing ingredients. Divide the cauliflower and rice between plates, scatter over the cashews and drizzle with the dressing.</textarea
+                        >
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom_right">
+              <div class="right_top_box">
+                <div class="right_tittle">
+                  <div style="font-size: 22px">Global analysis per portion</div>
+                  <div style="color: #888888">
+                    Energy, macronutrients and fiber distribution
+                  </div>
+                </div>
+
+                <div class="energy">
+                  <div>Energy</div>
+                  <div style="font-weight: 600">
+                    315 <span style="font-weight: 400">kcal</span>
+                  </div>
+                </div>
+
+                <div class="macronutrients">
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #db4965">
+                      16g
+                    </div>
+                    <div style="font-weight: 300">Fat</div>
+                  </div>
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #ea9f77">
+                      45g
+                    </div>
+                    <div style="font-weight: 300">Carbohydrate</div>
+                  </div>
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #1ab394">
+                      12g
+                    </div>
+                    <div style="font-weight: 300">Protein</div>
+                  </div>
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #6a7d93">
+                      6g
+                    </div>
+                    <div style="font-weight: 300">Fiber</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="right_mid_box">
+                <div class="mid_title">
+                  <div style="font-size: 22px">Macronutrients per portion</div>
+                  <div style="color: #888888">
+                    Macronutrients distribution of the recipe
+                  </div>
+                </div>
+                <canvas id="myPieChart"></canvas>
+              </div>
+
+              <div class="right_bottom_box">
+                <div class="bottom_title">
+                  <div style="font-size: 22px">Macronutrients per portion</div>
+                  <div style="color: #888888">
+                    Macronutrients distribution of the recipe
+                  </div>
+                </div>
+                <table>
+                  <tr>
+                    <td>
+                      <div>Sodium</div>
+                      <div><span style="font-weight: 800">1418</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin A</div>
+                      <div><span style="font-weight: 800">18</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin B-6</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin B-12</div>
+                      <div><span style="font-weight: 800">0</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin C</div>
+                      <div><span style="font-weight: 800">50</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin D (D2 + D3)</div>
+                      <div><span style="font-weight: 800">0</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin E</div>
+                      <div><span style="font-weight: 800">1</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin K</div>
+                      <div><span style="font-weight: 800">87</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Sugars</div>
+                      <div><span style="font-weight: 800">13</span> g</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Calcium</div>
+                      <div><span style="font-weight: 800">88</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Iron</div>
+                      <div><span style="font-weight: 800">4</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Magnesium</div>
+                      <div><span style="font-weight: 800">127</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Phosphorus</div>
+                      <div><span style="font-weight: 800">251</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Potassium</div>
+                      <div><span style="font-weight: 800">649</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Zinc</div>
+                      <div><span style="font-weight: 800">2</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Copper</div>
+                      <div><span style="font-weight: 800">1</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Fluoride</div>
+                      <div><span style="font-weight: 800">1</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Manganese</div>
+                      <div><span style="font-weight: 800">2</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Selenium</div>
+                      <div><span style="font-weight: 800">4</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Thiamin</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Riboflavin</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Niacin</div>
+                      <div><span style="font-weight: 800">3</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Pantothenic acid</div>
+                      <div><span style="font-weight: 800">1</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Folate, total</div>
+                      <div><span style="font-weight: 800">156</span> ug</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <script>
+      var ctx = document.getElementById("myPieChart").getContext("2d");
+      var myPieChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Fat", "Carbohydrate", "Protein"],
+          datasets: [
+            {
+              data: [38.3, 48.9, 12.8],
+              backgroundColor: ["#DB4965", "#EA9F77", "#1AB394"],
+              hoverBackgroundColor: ["#c5425c", "#c88765", "#15a286"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "bottom",
+              labels: {
+                usePointStyle: true, // 👉 Hiển thị bằng point style
+                pointStyle: "rect", // 👉 Dùng hình vuông (rect)
+                padding: 20, // 👉 Khoảng cách giữa các legend
+              },
+            },
+            tooltip: {
+              enabled: true,
+            },
+            datalabels: {
+              color: "#ffffff",
+              font: {
+                weight: "bold",
+                size: 14,
+              },
+              formatter: (value, context) => {
+                return value + "%";
+              },
+            },
+          },
+        },
+        plugins: [ChartDataLabels],
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js
+    "></script>
+    <script src="../main.js"></script>
+    <script src="./detail.js"></script>
+  </body>
+</html>

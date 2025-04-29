@@ -5,9 +5,234 @@
 
 body {
     background-color: #F8F9FA;
+
 }
 
-.homepage_container {
+.food_form_container {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1050;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    .black_box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .food_form * {
+        color: #676A6C;
+    }
+
+    .food_info {
+        input {
+            background-color: #EEEEEE;
+        }
+    }
+
+    .food_form {
+        background-color: white;
+        width: 80%;
+        height: 90%;
+        padding: 30px;
+        border-radius: 10px;
+        overflow-y: auto;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+
+        .form_quote {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .close_form {
+                align-self: flex-end;
+            }
+
+            .form_title {
+                font-size: 30px;
+            }
+        }
+
+        .food_form_header {
+            width: 100%;
+
+            #food_input {
+                display: flex;
+                gap: 40px;
+            }
+
+            .header_right {
+                width: 40%;
+            }
+
+            .header_left {
+                width: 60%;
+            }
+        }
+
+        #food_input {
+            width: 100%;
+
+            .input_column {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .input-group * {
+                border-radius: 0;
+            }
+
+            span,
+            input {
+                height: 55px;
+            }
+
+
+            .w-5 {
+                flex: 0 0 5%;
+                width: 5%;
+            }
+
+            .w-8 {
+                flex: 0 0 8%;
+                width: 8%;
+            }
+
+            .w-10 {
+                flex: 0 0 10%;
+                width: 10%;
+            }
+
+            .w-30 {
+                flex: 0 0 30%;
+                width: 30%;
+            }
+
+            .w-40 {
+                flex: 0 0 40%;
+                width: 40%;
+            }
+
+            .w-60 {
+                flex: 0 0 60%;
+                width: 60%;
+            }
+
+            .w-62 {
+                flex: 0 0 62%;
+                width: 62%;
+            }
+
+            .w-65 {
+                flex: 0 0 65%;
+                width: 65%;
+            }
+
+            .w-70 {
+                flex: 0 0 70%;
+                width: 70%;
+            }
+
+            .info_box {
+                display: flex;
+                align-items: center;
+                background-color: #f8f9fa;
+            }
+        }
+
+        .hr_info {
+            border: 1px solid rgba($color: #000000, $alpha: 0.2);
+            width: 100%;
+
+            .hr_text {
+                width: 100%;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: #1AB394;
+            }
+        }
+
+        .form_main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+
+            .info_box {
+                justify-content: center;
+            }
+
+            .form_main_top {
+                #food_input {
+                    display: flex;
+                    gap: 40px;
+                }
+
+                .main_right {
+                    width: 50%;
+                }
+
+                .main_left {
+                    width: 50%;
+                }
+            }
+
+            .input-group-text.w-30 {
+                white-space: unset;
+            }
+
+            .form_main_bottom {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        .button_place {
+            align-self: flex-end;
+
+            .cancel_button {
+                border: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            .cancel_button:hover {
+                color: white;
+                background-color: rgb(95, 95, 95);
+            }
+
+            .save_button {
+                color: white;
+                background-color: #1ab394
+            }
+
+            .save_button:hover {
+                background-color: #14846e;
+            }
+        }
+    }
+}
+
+
+.ingredients_container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -199,6 +424,7 @@ body {
 
         main {
             width: 100%;
+            max-height: 1440px;
             padding: 25px 15px;
             flex: 2;
 
@@ -238,10 +464,6 @@ body {
                     .text {
                         font-size: 12px;
                     }
-                }
-
-                .main_tools * {
-                    border-radius: 0;
                 }
 
                 .main_tools {
@@ -300,153 +522,71 @@ body {
                 .main_border {
                     width: 100%;
                     height: 100%;
-                    padding: 5px;
                     margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 11px;
 
-                    .row {
-                        margin-bottom: 20px;
+                    .main_card.create_food {
+                        color: #888888;
+                        gap: 10px;
                     }
 
-                    .recipes_card:hover {
-                        transform: scale(1.01);
-                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                        transition: all 0.2s ease-in-out;
-                    }
-
-
-                    .recipes_card {
-                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    .main_card {
+                        width: 100%;
+                        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
                         font-size: 14px;
-                        height: 103%;
                         border-radius: 5px;
                         display: flex;
+                        padding: 10px;
+                        cursor: pointer;
 
-                        .card_left {
-                            width: 100%;
-                            padding: 10px;
-                            flex: 1;
 
-                            .community_recipes {
-                                width: 150px;
-                                height: 28.5px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                gap: 8.7px;
-                                font-weight: 900;
-                                font-size: 11px;
-                                border-radius: 5px;
-                                color: #EA9F77;
-                                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-                                img {
-                                    width: 14px;
-                                    height: 14px;
-                                }
-                            }
-                        }
-
-                        .card_right {
-                            width: 100%;
-                            height: 100%;
+                        .card_info {
                             flex: 2;
                             display: flex;
                             flex-direction: column;
-                            gap: 10px;
+                            justify-content: center;
 
-                            .card_header {
-                                flex: 2;
-                                display: flex;
-                                flex-direction: column;
-                                gap: 10px;
-                                width: 100%;
-                                color: #676A6C;
-                                padding: 21px;
-                                border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
-
-                                .card_title {
-                                    color: #282828;
-                                    font-weight: 700;
-                                    max-width: 70%;
-                                    word-break: break-word;
-                                    overflow-wrap: break-word;
-                                }
-
-                                .card_user_info {
-                                    padding: 2.5px 24px 10.25px;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: space-between;
-                                    width: 100%;
-
-                                    .heart_box {
-                                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-                                        width: auto;
-                                        min-width: 60px;
-                                        padding: 0 8px;
-                                        height: 28px;
-                                        border-radius: 4px;
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        gap: 6px;
-                                        flex-shrink: 0;
-                                    }
-                                }
-
-                                .card_container {
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 4px;
-
-                                    .card_categories_info {
-                                        max-height: 45px;
-                                        overflow-y: hidden;
-                                    }
-
-                                }
+                            .info {
+                                font-size: 16px;
                             }
 
-                            .card_paragraph {
-                                flex: 1;
+                            .author {
+                                font-weight: 300;
+                            }
+                        }
+
+                        .card_paragraph {
+                            flex: 1;
+                            display: flex;
+                            justify-content: space-around;
+                            padding-right: 50px;
+                            align-items: center;
+
+                            .info_quote {
                                 display: flex;
+                                justify-content: center;
                                 align-items: center;
-                                justify-content: space-around;
+                            }
 
-                                .info_title {
-                                    color: #888888;
-                                }
-
-                                .info_quote {
-                                    display: flex;
-                                    justify-content: center;
-                                }
+                            .info_title {
+                                font-weight: 300;
                             }
                         }
                     }
 
                 }
 
+                .main_card:hover {
+                    transform: scale(1.01);
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    transition: all 0.2s ease-in-out;
+                }
+
 
             }
         }
 
-    }
-}
-
-@media screen and (max-width: 1400px) {
-    .recipes_card {
-        flex-direction: column;
-        font-size: 80%;
-    }
-
-    .card_left,
-    .card_right {
-        width: 100%;
-        flex: 0;
-    }
-
-    .card_right {
-        padding: 10px;
     }
 }

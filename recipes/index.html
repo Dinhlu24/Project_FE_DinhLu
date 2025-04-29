@@ -26,10 +26,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="homepage.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./recipe.css" />
   </head>
   <body>
-    <div class="homepage_container">
+    <div class="recipe_container">
       <div class="left">
         <div class="side_bar">
           <div class="icon">
@@ -37,7 +41,7 @@
           </div>
           <!--  -->
           <div class="side_bar_navs">
-            <nav class="current_page" disabled="true">
+            <nav onclick="window.location.href = '../homepage'">
               <div class="nav_icon small_icon">
                 <i class="fa-solid fa-house"></i>
               </div>
@@ -49,9 +53,9 @@
               </div>
               <div class="nav_text">Foods</div>
             </nav>
-            <nav onclick="window.location.href ='../recipes'">
+            <nav class="current_page">
               <div class="nav_icon small_icon">
-                <img src="../assets/Recipies.svg" alt="" />
+                <img src="../assets/recipesIcon.svg" alt="" />
               </div>
               <div class="nav_text">Recipes</div>
             </nav>
@@ -87,8 +91,16 @@
         <main>
           <div class="main_container">
             <div class="main_title">
-              <div class="title">Recipes</div>
-              <div class="text">Search, check and create new recipes</div>
+              <div>
+                <div class="title">Recipes</div>
+                <div class="text">Search, check and create new recipes</div>
+              </div>
+              <div
+                style="cursor: pointer"
+                onclick="window.location.href = './add'"
+              >
+                <i class="fa-solid fa-plus"></i>
+              </div>
             </div>
             <!--  -->
             <div class="main_tools">
@@ -98,7 +110,6 @@
                   type="text"
                   placeholder="Search"
                   name="search"
-                  oninput="searchRecipe()"
                 />
               </div>
               <!--  -->
@@ -108,16 +119,11 @@
                     <img src="../assets/sort.svg" alt="" />
                   </span>
                   <div class="custom-select-wrapper">
-                    <select
-                      class="form-select custom-select"
-                      id="nutrient_sort"
-                      onchange="sortByNutrient()"
-                    >
-                      <option selected value="">Sort by nutrient</option>
-                      <option value="energy">Energy</option>
-                      <option value="carbohydrate">Carbohydrate</option>
-                      <option value="fat">Fat</option>
-                      <option value="protein">Protein</option>
+                    <select class="form-select custom-select">
+                      <option selected disabled>Sort by nutrient</option>
+                      <option value="calcium">Calcium</option>
+                      <option value="iron">Iron</option>
+                      <option value="vitamin-c">Vitamin C</option>
                     </select>
                     <i class="fa-solid fa-angle-down select-icon"></i>
                   </div>
@@ -126,23 +132,30 @@
               <!--  -->
               <div class="sort_by_category">
                 <div class="custom-select-wrapper">
-                  <select
-                    class="form-select custom-select"
-                    id="category_sort"
-                    onchange="filterByCategory()"
-                  >
-                    <option selected>All categories</option>
-                    <option value="desserts">Desserts</option>
-                    <option value="breakfast and snacks">
-                      Breakfast and snacks
-                    </option>
-                    <option value="appetizers and side dishes">
-                      Appetizers and side dishes
-                    </option>
-                    <option value="Soups">Soups</option>
+                  <select class="form-select custom-select">
+                    <option selected disabled>All categories</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                   </select>
                   <i class="fa-solid fa-angle-down select-icon"></i>
                 </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="main_personal_box">
+              <div class="favorites_box">
+                <i class="fa-solid fa-heart"></i>
+                <div>Favorites</div>
+                <div class="favorites_count">0</div>
+              </div>
+              <div class="my_recipe_box">
+                <div class="check_my_recipe">
+                  <i class="fa-solid fa-square-check"></i>
+                  <i class="fa-regular fa-square"></i>
+                </div>
+                <img src="../assets/pen-line.svg" alt="" />
+                <div class="recipe_text">My recipes</div>
               </div>
             </div>
             <!--  -->
@@ -150,7 +163,10 @@
               <!-- Một hàng -->
               <div class="row">
                 <div class="col-12 col-md-6 mb-3">
-                  <div class="recipes_card d-flex">
+                  <div
+                    class="recipes_card d-flex"
+                    onclick="window.location.href = './detail/?id=20'"
+                  >
                     <div class="card_left me-2">
                       <div class="community_recipes">
                         <img src="../assets/Group.svg" alt="" />
@@ -264,8 +280,8 @@
               </div>
               <!-- Kết thúc 1 hàng -->
             </div>
-            <div class="page_render btn-group" id="pagin_box">
-              <!-- <button class="page_button" id="pre">
+            <div class="page_render btn-group">
+              <button class="page_button" id="pre">
                 <i class="fa-solid fa-forward fa-flip-horizontal"></i>
               </button>
               <button class="page_button page_choice">1</button>
@@ -274,7 +290,7 @@
               <button class="page_button">4</button>
               <button class="page_button" id="next">
                 <i class="fa-solid fa-forward"></i>
-              </button> -->
+              </button>
             </div>
             <!--  -->
           </div>
@@ -284,6 +300,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js
     "></script>
     <script src="../main.js"></script>
-    <script src="./homepage.js"></script>
+    <script src="./recipe.js"></script>
   </body>
 </html>

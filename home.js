@@ -7,6 +7,24 @@ function checkAuthen() {
 }
 checkAuthen()
 
+// Validate Data
+function isValidEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
+
+function isEmailAlreadyExists(email) {
+  return userList.some(user => user.email == email)
+}
+
+function isValidPassword(password) {
+  return password.length >= 8
+}
+
+function isCorrectPassword(data) {
+  return userList.find(user => user.email == data.email && user.password == data.password)
+}
+
 // Hàm đổi Form
 function switchForm(e, formStatus) {
   if (e)

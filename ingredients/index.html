@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="ingredient.css" />
+  </head>
+  <body>
+    <div class="ingredients_container">
+      <!-- Food info -->
+      <div class="food_form_container">
+        <div class="black_box" onclick="closeForm(true)"></div>
+        <!--  -->
+        <!-- <div class="food_form food_info">
+          <div class="form_quote">
+            <div class="close_form" onclick="closeForm(true)">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="form_title">Food information</div>
+            <div>Check and update the information about the food</div>
+          </div>
+          <div class="food_form_header">
+            <form id="food_input">
+              <div class="header_left input_column">
+                <div class="input-group">
+                  <span class="input-group-text w-30">Name</span>
+                  <input
+                    type="text"
+                    value="Ackee, canned, drained"
+                    class="form-control w-70"
+                    name="name"
+                  />
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text w-30">Category</span>
+                  <input
+                    type="text"
+                    class="form-control w-70"
+                    value="Vegetables and Vegetable Products"
+                    name="category"
+                  />
+                </div>
+              </div>
+              <div class="header_right input_column">
+                <div class="input-group">
+                  <span class="input-group-text w-40">Source</span>
+                  <input
+                    type="text"
+                    class="form-control w-60"
+                    value="McCance and Widdowson's"
+                    name="source"
+                  />
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text w-40">Quantity</span>
+                  <input
+                    type="text"
+                    class="form-control w-30"
+                    value="100"
+                    style="background-color: white"
+                  />
+                  <div class="info_box form-control w-30">grams</div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="hr_info">
+            <div class="hr_text">Nutritional value per 100 g</div>
+          </div>
+          <div class="form_main">
+            <div class="form_quote">
+              <div class="form_title">Macronutrients</div>
+            </div>
+            <div class="form_main_top">
+              <form id="food_input">
+                <div class="main_left input_column">
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Energy</span>
+                    <input
+                      type="text"
+                      value="151.0"
+                      class="form-control w-62"
+                      name="energy"
+                    />
+                    <div class="info_box form-control w-8">kcal</div>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Carbohydrate</span>
+                    <input
+                      type="text"
+                      value="0.8"
+                      class="form-control w-62"
+                      name="carbohydrate"
+                    />
+                    <div class="info_box form-control w-8">g</div>
+                  </div>
+                </div>
+                <div class="main_right input_column">
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Fat</span>
+                    <input
+                      type="text"
+                      value="15.2"
+                      class="form-control w-62"
+                      name="fat"
+                    />
+                    <div class="info_box form-control w-8">g</div>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Protein</span>
+                    <input
+                      type="text"
+                      value="2.9"
+                      class="form-control w-62"
+                      name="protein"
+                    />
+                    <div class="info_box form-control w-8">g</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="form_main_bottom">
+              <div class="form_quote">
+                <div class="form_title">Micronutrients</div>
+              </div>
+              <form id="food_input">
+                <div class="grid text-center" style="--bs-columns: 3">
+                  <div class="input_column">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Cholesterol</span>
+                      <input
+                        type="text"
+                        value="0.0"
+                        class="form-control w-62"
+                        name="cholesterol"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Water</span>
+                      <input
+                        type="text"
+                        value="76.7"
+                        class="form-control w-62"
+                        name="water"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin B-12</span>
+                      <input
+                        type="text"
+                        value="0.0"
+                        class="form-control w-62"
+                        name="vitamin_b12"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin E</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="vitamin_e"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Lactose</span>
+                      <input
+                        type="text"
+                        value="0.0"
+                        class="form-control w-62"
+                        name="lactose"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Sugars</span>
+                      <input
+                        type="text"
+                        value="0.8"
+                        class="form-control w-62"
+                        name="sugars"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Magnesium</span>
+                      <input
+                        type="text"
+                        value="40.0"
+                        class="form-control w-62"
+                        name="magnesium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Zinc</span>
+                      <input
+                        type="text"
+                        value="0.6"
+                        class="form-control w-62"
+                        name="zinc"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Manganese</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="manganese"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Riboflavin</span>
+                      <input
+                        type="text"
+                        value="0.07"
+                        class="form-control w-62"
+                        name="riboflavin"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Folate, total</span>
+                      <input
+                        type="text"
+                        value="41.0"
+                        class="form-control w-62"
+                        name="folate_total"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total saturated</span
+                      >
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="fatty_acids_saturated"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Chloride</span>
+                      <input
+                        type="text"
+                        value="340.0"
+                        class="form-control w-62"
+                        name="chloride"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                  </div>
+                  <div class="input_column">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Fiber</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="fiber"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin A</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="vitamin_a"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin C</span>
+                      <input
+                        type="text"
+                        value="30.0"
+                        class="form-control w-62"
+                        name="vitamin_c"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin K</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="vitamin_k"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Alcohol</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="alcohol"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Calcium</span>
+                      <input
+                        type="text"
+                        value="35.0"
+                        class="form-control w-62"
+                        name="calcium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Phosphorus</span>
+                      <input
+                        type="text"
+                        value="47.0"
+                        class="form-control w-62"
+                        name="phosphorus"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Copper</span>
+                      <input
+                        type="text"
+                        value="0.27"
+                        class="form-control w-62"
+                        name="copper"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Selenium</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="selenium"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Niacin</span>
+                      <input
+                        type="text"
+                        value="0.6"
+                        class="form-control w-62"
+                        name="niacin"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Follic acid</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="follic_acid"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total monounsaturated</span
+                      >
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="fatty_acids_monounsaturated"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                  </div>
+                  <div class="input_column">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Sodium</span>
+                      <input
+                        type="text"
+                        value="240.0"
+                        class="form-control w-62"
+                        name="sodium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin B-6</span>
+                      <input
+                        type="text"
+                        value="0.06"
+                        class="form-control w-62"
+                        name="vitamin_b6"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Vitamin D (D2 + D3)</span
+                      >
+                      <input
+                        type="text"
+                        value="0.0"
+                        class="form-control w-62"
+                        name="vitamin_d"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Starch</span>
+                      <input
+                        type="text"
+                        value="0.0"
+                        class="form-control w-62"
+                        name="starch"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Caffeine</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="caffeine"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Iron</span>
+                      <input
+                        type="text"
+                        value="0.7"
+                        class="form-control w-62"
+                        name="iron"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Potassium</span>
+                      <input
+                        type="text"
+                        value="270.0"
+                        class="form-control w-62"
+                        name="potassium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Fluoride</span>
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="fluoride"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Thiamin</span>
+                      <input
+                        type="text"
+                        value="0.03"
+                        class="form-control w-62"
+                        name="thiamin"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Pantothenic acid</span
+                      >
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="pantothenic_acid"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total trans</span
+                      >
+                      <input
+                        type="text"
+                        value="0.0"
+                        class="form-control w-62"
+                        name="fatty_acids_trans"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total polyunsaturated</span
+                      >
+                      <input
+                        type="text"
+                        value=""
+                        class="form-control w-62"
+                        name="fatty_acids_polyunsaturated"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="button_place">
+              <button
+                type="button"
+                class="btn cancel_button"
+                onclick="closeForm(true)"
+              >
+                Cancel
+              </button>
+              <button type="button" class="btn save_button">
+                Save and close
+              </button>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="food_form food_add">
+          <div class="form_quote">
+            <div class="close_form" onclick="closeForm(true)">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="form_title">Add new food</div>
+            <div>Fill in the fields below with the food information</div>
+          </div>
+          <div class="food_form_header">
+            <form id="food_input">
+              <div class="header_left input_column">
+                <div class="input-group">
+                  <span class="input-group-text w-30">Name</span>
+                  <input type="text" class="form-control w-70" name="name" />
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text w-30">Category</span>
+                  <input
+                    type="text"
+                    class="form-control w-70"
+                    name="category"
+                  />
+                </div>
+              </div>
+              <div class="header_right input_column">
+                <div class="input-group">
+                  <span class="input-group-text w-40">Source</span>
+                  <input
+                    type="text"
+                    class="form-control w-60"
+                    name="source"
+                    value="My foods"
+                    style="background-color: #eeeeee"
+                  />
+                </div>
+                <div class="input-group">
+                  <span class="input-group-text w-40">Quantity</span>
+                  <input
+                    type="text"
+                    class="form-control w-30"
+                    style="background-color: white"
+                    value="100"
+                  />
+                  <div class="info_box form-control w-30">grams</div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="hr_info">
+            <div class="hr_text">Nutritional value per 100 g</div>
+          </div>
+          <div class="form_main">
+            <div class="form_quote">
+              <div class="form_title">Macronutrients</div>
+            </div>
+            <div class="form_main_top">
+              <form id="food_input">
+                <div class="main_left input_column">
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Energy</span>
+                    <input
+                      type="text"
+                      class="form-control w-62"
+                      name="energy"
+                    />
+                    <div class="info_box form-control w-8">kcal</div>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Carbohydrate</span>
+                    <input
+                      type="text"
+                      class="form-control w-62"
+                      name="carbohydrate"
+                    />
+                    <div class="info_box form-control w-8">g</div>
+                  </div>
+                </div>
+                <div class="main_right input_column">
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Fat</span>
+                    <input type="text" class="form-control w-62" name="fat" />
+                    <div class="info_box form-control w-8">g</div>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text w-30">Protein</span>
+                    <input
+                      type="text"
+                      class="form-control w-62"
+                      name="protein"
+                    />
+                    <div class="info_box form-control w-8">g</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="form_main_bottom">
+              <div class="form_quote">
+                <div class="form_title">Micronutrients</div>
+              </div>
+              <form id="food_input">
+                <div class="grid text-center" style="--bs-columns: 3">
+                  <div class="input_column">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Cholesterol</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="cholesterol"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Water</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="water"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin B-12</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_b12"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin E</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_e"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Lactose</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="lactose"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Sugars</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="sugars"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Magnesium</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="magnesium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Zinc</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="zinc"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Manganese</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="manganese"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Riboflavin</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="riboflavin"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Folate, total</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="folate_total"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total saturated</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="fatty_acids_saturated"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Chloride</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="chloride"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                  </div>
+                  <div class="input_column">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Fiber</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="fiber"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin A</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_a"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin C</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_c"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin K</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_k"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Alcohol</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="alcohol"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Calcium</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="calcium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Phosphorus</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="phosphorus"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Copper</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="copper"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Selenium</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="selenium"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Niacin</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="niacin"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Follic acid</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="follic_acid"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total monounsaturated</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="fatty_acids_monounsaturated"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                  </div>
+                  <div class="input_column">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Sodium</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="sodium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Vitamin B-6</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_b6"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Vitamin D (D2 + D3)</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="vitamin_d"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Starch</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="starch"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Caffeine</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="caffeine"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Iron</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="iron"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Potassium</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="potassium"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Fluoride</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="fluoride"
+                      />
+                      <div class="info_box form-control w-8">ug</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Thiamin</span>
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="thiamin"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Pantothenic acid</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="pantothenic_acid"
+                      />
+                      <div class="info_box form-control w-8">mg</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total trans</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="fatty_acids_trans"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Fatty acids, total polyunsaturated</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control w-62"
+                        name="fatty_acids_polyunsaturated"
+                      />
+                      <div class="info_box form-control w-8">g</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="button_place">
+              <button
+                type="button"
+                class="btn cancel_button"
+                onclick="closeForm(true)"
+              >
+                Cancel
+              </button>
+              <button type="button" class="btn save_button">
+                Save and close
+              </button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!--  -->
+
+      <div class="left">
+        <div class="side_bar">
+          <div class="icon">
+            <img src="../assets/nutriumicon.png" alt="" />
+          </div>
+          <!--  -->
+          <div class="side_bar_navs">
+            <nav onclick="window.location.href = '../homepage'">
+              <div class="nav_icon small_icon">
+                <i class="fa-solid fa-house"></i>
+              </div>
+              <div class="nav_text">Homepage</div>
+            </nav>
+            <nav class="current_page">
+              <div class="nav_icon small_icon">
+                <img src="../assets/foodsIcon.svg" alt="" />
+              </div>
+              <div class="nav_text">Foods</div>
+            </nav>
+            <nav onclick="window.location.href ='../recipes'">
+              <div class="nav_icon small_icon">
+                <img src="../assets/Recipies.svg" alt="" />
+              </div>
+              <div class="nav_text">Recipes</div>
+            </nav>
+          </div>
+          <!--  -->
+          <footer>
+            <div class="footer_icon small_icon">
+              <i class="fa-solid fa-user-plus fa-flip-horizontal"></i>
+            </div>
+            <div class="foorter_text">Sign out</div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="right">
+        <header>
+          <nav>
+            <div class="nav_bars" onclick="openSideBar()">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="user_info">
+              Cường Trần
+              <div class="small_box">-</div>
+            </div>
+          </nav>
+          <!--  -->
+          <span class="header_info">
+            <span class="page_title">Food databases</span>
+            <span class="page_text"
+              >Create, check and update foods that you can use on meal
+              plans</span
+            >
+          </span>
+        </header>
+        <!--  -->
+        <main>
+          <div class="main_container">
+            <div class="main_title">
+              <div class="title">Foods</div>
+              <div class="text">
+                Search, consult and add new foods to the system
+              </div>
+            </div>
+            <!--  -->
+            <div class="main_tools">
+              <div class="search">
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  placeholder="Search"
+                  name="search"
+                  oninput="searchFood()"
+                />
+              </div>
+              <!--  -->
+              <div class="sort">
+                <div class="input-group flex-nowrap">
+                  <span class="input-group-text" id="addon-wrapping">
+                    <img src="../assets/sort.svg" alt="" />
+                  </span>
+                  <div class="custom-select-wrapper">
+                    <select
+                      class="form-select custom-select"
+                      id="nutrient_sort"
+                      onchange="sortByNutrient()"
+                    >
+                      <option selected value="">Sort by nutrient</option>
+                      <option value="energy">Energy</option>
+                      <option value="carbohydrate">Carbohydrate</option>
+                      <option value="fat">Fat</option>
+                      <option value="protein">Protein</option>
+                    </select>
+                    <i class="fa-solid fa-angle-down select-icon"></i>
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="sort_by_category">
+                <div class="custom-select-wrapper">
+                  <!-- <select class="form-select custom-select">
+                    <option selected disabled>All categories</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select> -->
+                  <i class="fa-solid fa-angle-down select-icon"></i>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="main_border">
+              <div
+                class="main_card"
+                onclick="closeForm(false),openForm('info',1)"
+              >
+                <div class="card_info">
+                  <div class="info">Ackee, canned, drained</div>
+                  <div class="author">McCance and Widdowson's</div>
+                </div>
+                <!--  -->
+                <div class="card_paragraph">
+                  <div class="card_energy">
+                    <span class="info_quote"> 151 kcal </span>
+                    <div class="info_title">Energy</div>
+                  </div>
+                  <div class="card_fat">
+                    <span class="info_quote"> 15 g </span>
+                    <div class="info_title">Fat</div>
+                  </div>
+                  <div class="card_carb">
+                    <span class="info_quote"> 1 g </span>
+                    <div class="info_title">Carbohydrate</div>
+                  </div>
+                  <div class="card_protein">
+                    <span class="info_quote"> 3 g </span>
+                    <div class="info_title">Protein</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="main_card create_food"
+                onclick="closeForm(false),openForm('add',undefined)"
+              >
+                <div class="create_icon">
+                  <img src="../assets/create_icon.svg" alt="" />
+                </div>
+                <div class="create_quote">Create food</div>
+              </div>
+            </div>
+            <div class="page_render btn-group" id="pagin_box">
+              <button class="page_button" id="pre">
+                <i class="fa-solid fa-forward fa-flip-horizontal"></i>
+              </button>
+              <button class="page_button page_choice">1</button>
+              <button class="page_button">2</button>
+              <button class="page_button">3</button>
+              <button class="page_button">4</button>
+              <button class="page_button" id="next">
+                <i class="fa-solid fa-forward"></i>
+              </button>
+            </div>
+            <!--  -->
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js
+    "></script>
+    <script src="../main.js"></script>
+    <script src="./ingredient.js"></script>
+  </body>
+</html>
