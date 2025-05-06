@@ -7,7 +7,7 @@ body {
     background-color: #F8F9FA;
 }
 
-.homepage_container {
+.recipe_container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -109,7 +109,6 @@ body {
                 padding: 16px;
                 background-color: #12896D;
                 display: flex;
-                cursor: pointer;
                 align-items: center;
                 gap: 7px;
 
@@ -117,7 +116,6 @@ body {
                 .foorter_text {
                     color: white;
                 }
-
             }
         }
     }
@@ -231,6 +229,9 @@ body {
                 }
 
                 .main_title {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
                     color: #676A6C;
 
                     .title {
@@ -299,6 +300,53 @@ body {
                     .sort_by_category {}
                 }
 
+                .main_personal_box {
+                    height: 32px;
+                    width: 100%;
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .favorites_box {
+                        width: 200px;
+                        overflow-x: hidden;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        border: 1px solid rgba($color: #000000, $alpha: 0.2);
+                        border-radius: 5px;
+                        padding: 14px 10px;
+
+                        i {
+                            color: #CC5965;
+                        }
+
+                        .favorites_count {
+                            color: #AAAAAA;
+                        }
+                    }
+
+                    .my_recipe_box {
+                        width: 200px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        color: #2BA0CC;
+
+                        .check_my_recipe {
+                            i:hover {
+                                color: #2BA0CC;
+                            }
+                        }
+
+                        .recipe_text {
+                            font-weight: 700;
+                        }
+                    }
+
+                }
+
                 .main_border {
                     width: 100%;
                     height: 100%;
@@ -322,6 +370,7 @@ body {
                         height: 103%;
                         border-radius: 5px;
                         display: flex;
+                        cursor: pointer;
 
                         .card_left {
                             width: 100%;

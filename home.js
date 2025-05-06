@@ -1,11 +1,24 @@
-let userLogin = null
-function checkAuthen() {
-  userLogin = JSON.parse(localStorage.getItem('userLogin'))
-  if (userLogin) {
-    window.location.href = "./homepage/"
-  }
+if (checkAuthen()) {
+  window.location.href = './homepage'
+} // Kiểm tra xem người dùng có nhấn vào rememberMe hay chưa nếu rồi thì nhảy qua trang homepage
+
+// Validate Data
+function isValidEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
 }
-checkAuthen()
+
+function isEmailAlreadyExists(email) {
+  return userList.some(user => user.email == email)
+}
+
+function isValidPassword(password) {
+  return password.length >= 8
+}
+
+function isCorrectPassword(data) {
+  return userList.find(user => user.email == data.email && user.password == data.password)
+}
 
 // Hàm đổi Form
 function switchForm(e, formStatus) {
@@ -31,6 +44,9 @@ function errorAlertContent(data) {
 
 // Hàm đăng ký
 function signUp() {
+  setTimeout(() => {
+    alertPlaceEl.style.display = 'none'
+  }, 3000)
   let formEl = document.getElementById("signup_form")
   let data = getFormData(formEl)
   let alertPlaceEl = document.querySelector(".alert_place")
@@ -156,16 +172,20 @@ function signUp() {
 
   switchForm(undefined, '') // Đổi về Form đăng nhập
 
-  data.rememberMe = false
+  delete data.rememberMe
   userList.push(data)
 
-  saveUserListToLocal()
+  console.log()
+  saveDataToLocal('userList', userList)
 }
 
+// Hàm đăng nhập
 function signIn() {
+  setTimeout(() => {
+    alertPlaceEl.style.display = 'none'
+  }, 3000)
   let formEl = document.getElementById("signin_form")
   let data = getFormData(formEl)
-  console.log(data)
   let alertPlaceEl = document.querySelector(".alert_place")
   alertPlaceEl.style.display = 'flex'
   alertPlaceEl.innerHTML = ``
@@ -252,13 +272,19 @@ function signIn() {
         </div>
     `
 
-  if (data.rememberMe) // Nếu người dùng chọn rememberMe thì lưu dữ liệu người dùng trên local
-    localStorage.setItem("userLogin", JSON.stringify(data))
+  userLogin = userList.find(user => user.email == data.email)
+  if (data.rememberMe) {// Nếu người dùng chọn rememberMe thì lưu dữ liệu người dùng trên local
+    localStorage.setItem("userLogin", JSON.stringify(userLogin))
+    sessionStorage.removeItem("userLogin")
+  }
+  else {
+    sessionStorage.setItem("userLogin", JSON.stringify(userLogin))
+    localStorage.removeItem("userLogin")
+  }
 
   setTimeout(() => {
     alertPlaceEl.style.display = 'none'
-  }, 3000) // Đặt thời gian biến mất cho thông báo
+    window.location.href = window.location.href = "./homepage/"
+  }, 2000) // Đặt thời gian biến mất cho thông báo
   formEl.reset()
-
-  window.location.href = window.location.href = "./homepage/"
 }

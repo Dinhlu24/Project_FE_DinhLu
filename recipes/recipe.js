@@ -1,7 +1,7 @@
 let curPage = 1;
 let maxItemPage = 8;
 
-let originalData = favoriteList.slice();
+let originalData = recipeListWithFood.slice();
 let filteredData = [];
 let searchedData = [];
 let curData = [];
@@ -10,12 +10,11 @@ let currentSearchKeyword = "";
 let currentSortKey = "";
 
 getUserLoginData()
-renderHeader()
-
 if (!checkAuthen()) {
   window.location.href = '../index.html'
 }
 
+renderHeader()
 function renderHeader() {
   document.querySelector('header nav').innerHTML = `
   <div class="nav_bars" onclick="openSideBar()">
@@ -28,21 +27,18 @@ function renderHeader() {
   `
 }
 
-// Đóng mở side bar
 function openSideBar() {
-  let leftEl = document.querySelector(".homepage_container .left");
-  let rightEl = document.querySelector(".homepage_container .right");
+  let leftEl = document.querySelector(".recipe_container .left");
+  let rightEl = document.querySelector(".recipe_container .right");
 
   leftEl.classList.toggle("sidebar-collapsed");
   rightEl.classList.toggle("main-expanded");
 }
 
-// Hiển thị toàn bộ danh mục bên trong thẻ
 function displayAllCategory(dataCategoryList) {
   return dataCategoryList.map(cat => capitalizeWords(cat.name)).join(', ');
 }
 
-// Hiển thị dữ liệu ra màn hình
 function renderData(dataList) {
   const mainEl = document.querySelector(".main_border");
   let rowEl = ``;
@@ -56,11 +52,10 @@ function renderData(dataList) {
     for (let j = i; j < i + 2 && j < endIndex; j++) {
       const recipe = dataList[j];
       const food = recipe.foodNutrientSum;
-      console.log(recipe)
 
       colEl += `
       <div class="col-12 col-md-6 mb-3">
-      <div class="recipes_card d-flex">
+      <div class="recipes_card d-flex" onclick="window.location.href = './detail/?id=${recipe.id}'">
       <div class="card_left me-2">
       <div class="community_recipes">
       <img src="../assets/Group.svg" alt="" />
@@ -154,21 +149,18 @@ function applySearchAndSort() {
   renderData(curData);
 }
 
-// Tìm kiếm
 function searchRecipe() {
   currentSearchKeyword = document.querySelector(".search input").value.trim().toLowerCase();
   curPage = 1;
   applySearchAndSort();
 }
 
-// Sắp xếp
 function sortByNutrient() {
   currentSortKey = document.querySelector("#nutrient_sort").value;
   curPage = 1;
   applySearchAndSort();
 }
 
-// Lọc
 function filterByCategory() {
   const selected = document.querySelector("#category_sort").value.trim().toLowerCase();
   curPage = 1;
@@ -184,7 +176,6 @@ function filterByCategory() {
   applySearchAndSort();
 }
 
-// Để duyệt tất cả các lựa chọn danh mục hiện có để có thể lọc
 function populateCategoryOptions() {
   const selectElement = document.querySelector('.sort_by_category');
 
@@ -204,7 +195,6 @@ function populateCategoryOptions() {
   `;
 }
 
-// Hiển thị thanh phân trang
 function renderPagin() {
   const countPage = Math.ceil(curData.length / maxItemPage);
   const showPageLimit = 4;
@@ -263,7 +253,6 @@ function renderPagin() {
   `;
 }
 
-// Kiểm tra trang hiện tại
 function setPage(number) {
   const countPage = Math.ceil(curData.length / maxItemPage);
   if (number < 1 || number > countPage) return;
@@ -275,7 +264,7 @@ function setPage(number) {
 
 // Dùng để khởi tạo dữ liệu ban đầu
 function init() {
-  originalData = favoriteList.slice();
+  originalData = recipeListWithFood.slice();
   filteredData = originalData.slice();
   currentSearchKeyword = "";
   currentSortKey = "";
@@ -284,4 +273,5 @@ function init() {
   applySearchAndSort();
 }
 
+document.querySelector('.favorites_count').innerText = favoriteList.length
 init();

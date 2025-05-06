@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="add.css" />
+  </head>
+  <body>
+    <div class="detail_container">
+      <div class="left">
+        <div class="side_bar">
+          <div class="icon">
+            <img src="../../assets/nutriumicon.png" alt="" />
+          </div>
+          <!--  -->
+          <div class="side_bar_navs">
+            <nav onclick="window.location.href = '../../homepage'">
+              <div class="nav_icon small_icon">
+                <i class="fa-solid fa-house"></i>
+              </div>
+              <div class="nav_text">Homepage</div>
+            </nav>
+            <nav onclick="window.location.href ='../../ingredients'">
+              <div class="nav_icon small_icon">
+                <img src="../../assets/Foods.svg" alt="" />
+              </div>
+              <div class="nav_text">Foods</div>
+            </nav>
+            <nav
+              class="current_page"
+              onclick="window.location.href ='../../recipes'"
+            >
+              <div class="nav_icon small_icon">
+                <img src="../../assets/recipesIcon.svg" alt="" />
+              </div>
+              <div class="nav_text">Recipes</div>
+            </nav>
+          </div>
+          <!--  -->
+          <footer onclick="signOut()" style="cursor: pointer">
+            <div class="footer_icon small_icon">
+              <i class="fa-solid fa-user-plus fa-flip-horizontal"></i>
+            </div>
+            <div class="foorter_text">Sign out</div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="right">
+        <header>
+          <nav>
+            <div class="nav_bars" onclick="openSideBar()">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="user_info">
+              Cường Trần
+              <div class="small_box">-</div>
+            </div>
+          </nav>
+          <!--  -->
+          <span class="header_info">
+            <span class="page_title">Recipes</span>
+            <span class="page_text">Create, check and update recipes</span>
+          </span>
+        </header>
+        <!--  -->
+        <main>
+          <!--  -->
+          <div class="main_top">
+            <div class="top_card">
+              <div class="card">
+                <div class="card_header">
+                  <div class="community_recipes">
+                    <img src="../../assets/pen-line.svg" alt="" />
+                    <div>My recipes</div>
+                  </div>
+                  <div class="heart_box">
+                    <i class="fa-regular fa-heart"></i>
+                    <div class="heart_count">0</div>
+                  </div>
+                </div>
+                <!--  -->
+                <div class="card_middle">
+                  <div class="card_footer" id="uploadBox">
+                    <input type="file" accept="image/*" id="imgInput" hidden />
+                    <img
+                      src="../../assets/border_color.svg"
+                      alt=""
+                      style="width: 16px"
+                    />
+                    <div>Upload image</div>
+                  </div>
+                </div>
+                <!--  -->
+                <div
+                  class="card_footer"
+                  id="categoryFooter"
+                  onclick="showSelect()"
+                >
+                  <img src="../../assets/tag.svg" alt="" />
+                  <div class="card_categories_info" id="categoryText">
+                    Thêm mới hoặc chọn từ dropdown
+                  </div>
+                </div>
+
+                <!-- <select
+                  id="categorySelect"
+                  onchange="selectOption()"
+                >
+                  <option selected value="Thêm mới hoặc chọn từ dropdown">
+                    Thêm mới hoặc chọn từ dropdown
+                  </option>
+                  <option>Desserts</option>
+                  <option>Breakfast and snacks</option>
+                  <option>Appetizers and side dishes</option>
+                  <option>Soups</option>
+                  <option>Meat dishes</option>
+                  <option>Fish dishes</option>
+                  <option>Vegetarian dishes</option>
+                </select> -->
+              </div>
+            </div>
+
+            <div class="right_box">
+              <div class="publish_box">
+                <div class="form_title">
+                  <div style="font-size: 22px">Publish recipe</div>
+                  <div style="font-size: 14px">
+                    Publish your recipe on your website or share it with the
+                    Nutrium community
+                  </div>
+                </div>
+                <button class="btn" onclick="addNewRecipe()">Publish</button>
+              </div>
+              <!--  -->
+              <div class="box_basic_info">
+                <div class="form_title">
+                  <div style="font-size: 22px">Basic information</div>
+                  <div style="font-size: 14px">
+                    Check and edit recipe's basic information
+                  </div>
+                </div>
+
+                <div class="form_inputs">
+                  <form id="form_input">
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Name</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="Recipe"
+                      />
+                      <span class="input-group-text" style="color: #1ab394">
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30" style="height: 62px"
+                        >Description</span
+                      >
+                      <textarea
+                        class="form-control single-break"
+                        name="description"
+                        rows="2"
+                      ></textarea>
+                      <span
+                        class="input-group-text"
+                        style="color: #1ab394; height: 62px"
+                      >
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Author</span>
+                      <input type="text" class="form-control" name="author" />
+                      <span class="input-group-text" style="color: #1ab394">
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Total time</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="totalTime"
+                      />
+                      <span class="input-group-text" style="color: #1ab394">
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30"
+                        >Preparation time</span
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="preparationTime"
+                      />
+                      <span class="input-group-text" style="color: #1ab394">
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Final weight</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="finalWeight"
+                        placeholder="201 grams"
+                      />
+                      <span class="input-group-text" style="color: #1ab394">
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-text w-30">Portions</span>
+                      <input type="text" class="form-control" name="portions" />
+                      <span class="input-group-text" style="color: #1ab394">
+                        <i class="fa-solid fa-pen"></i>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="main_middle">
+            <div class="middle_title">
+              <div style="font-size: 22px; color: white">Creation</div>
+              <div class="middle_quote">
+                Create the recipe and choose the ingredients
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="main_bottom">
+            <div class="bottom_left">
+              <div class="left_top">
+                <div class="left_title">
+                  <div style="font-size: 22px; color: black">Ingredients</div>
+                  <div>Search and add ingredients to the recipe</div>
+                </div>
+                <!--  -->
+                <div class="render_place">
+                  <div class="render_box">
+                    <div class="input-group">
+                      <div class="form-control" style="border-radius: 0">
+                        1 serving of babyfood, water, bottled, GERBER, without
+                        added fluoride (113 g)
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <span
+                        class="input-group-text"
+                        style="color: #1ab394; border-radius: 0; padding: 11px"
+                      >
+                        <i class="fa-solid fa-plus"></i>
+                      </span>
+                      <div
+                        class="form-control"
+                        style="border-radius: 0; color: #676a6c"
+                      >
+                        Add new food equivalent
+                      </div>
+                    </div>
+                    <div class="input_group_icon">
+                      <i class="fa-solid fa-trash"></i>
+                    </div>
+                  </div>
+                  <div class="render_box">
+                    <div class="input-group">
+                      <div class="form-control" style="border-radius: 0">
+                        1 serving of babyfood, water, bottled, GERBER, without
+                        added fluoride (113 g)
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <span
+                        class="input-group-text"
+                        style="color: #1ab394; border-radius: 0; padding: 11px"
+                      >
+                        <i class="fa-solid fa-plus"></i>
+                      </span>
+                      <div
+                        class="form-control"
+                        style="border-radius: 0; color: #676a6c"
+                      >
+                        Add new food equivalent
+                      </div>
+                    </div>
+                    <div class="input_group_icon">
+                      <i class="fa-solid fa-trash"></i>
+                    </div>
+                  </div>
+                </div>
+                <!--  -->
+                <div class="add_ingredient_box">
+                  <div class="add_new_ingredient">
+                    <div class="input-group">
+                      <span
+                        class="input-group-text"
+                        style="color: #1ab394; border-radius: 0; padding: 11px"
+                      >
+                        <i class="fa-solid fa-chevron-up"></i>
+                      </span>
+                      <div
+                        class="form-control"
+                        style="border-radius: 0; color: #676a6c"
+                      >
+                        Add new ingredient
+                      </div>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="ingredient_box">
+                    <div class="tools_box">
+                      <div class="search">
+                        <input
+                          class="form-control me-2"
+                          type="text"
+                          placeholder="Search"
+                          name="search"
+                          oninput="searchFood()"
+                        />
+                      </div>
+                      <!--  -->
+                      <div class="sort">
+                        <div class="input-group flex-nowrap">
+                          <span class="input-group-text" id="addon-wrapping">
+                            <img src="../../assets/sort.svg" alt="" />
+                          </span>
+                          <div class="custom-select-wrapper">
+                            <select
+                              class="form-select custom-select"
+                              id="nutrient_sort"
+                              onchange="sortByNutrient()"
+                            >
+                              <option selected value="">
+                                Sort by nutrient
+                              </option>
+                              <option value="energy">Energy</option>
+                              <option value="carbohydrate">Carbohydrate</option>
+                              <option value="fat">Fat</option>
+                              <option value="protein">Protein</option>
+                            </select>
+                            <i class="fa-solid fa-angle-down select-icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <!--  -->
+                      <div class="sort_by_category">
+                        <div class="custom-select-wrapper">
+                          <select
+                            class="form-select custom-select"
+                            id="category_sort"
+                            onchange="filterByCategory()"
+                          >
+                            <option selected>All categories</option>
+                            <option value="desserts">Desserts</option>
+                            <option value="breakfast and snacks">
+                              Breakfast and snacks
+                            </option>
+                            <option value="appetizers and side dishes">
+                              Appetizers and side dishes
+                            </option>
+                            <option value="Soups">Soups</option>
+                          </select>
+                          <i class="fa-solid fa-angle-down select-icon"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="my-4 table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <td>Nutritional Information</td>
+                            <td
+                              style="
+                                background-color: #f3f3f4;
+                                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                              "
+                            >
+                              <div class="td-flex-wrapper">Energy</div>
+                            </td>
+                            <td
+                              style="
+                                background-color: #f3f3f4;
+                                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                              "
+                            >
+                              <div class="td-flex-wrapper">Fat</div>
+                            </td>
+                            <td
+                              style="
+                                background-color: #f3f3f4;
+                                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                              "
+                            >
+                              <div class="td-flex-wrapper">
+                                <div class="ellipsis">Carbohydrate</div>
+                              </div>
+                            </td>
+                            <td
+                              style="
+                                background-color: #f3f3f4;
+                                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                                border-right: 1px solid rgba(0, 0, 0, 0.1);
+                              "
+                            >
+                              <div class="td-flex-wrapper">Protein</div>
+                            </td>
+                            <td></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="ingredient_item">
+                            <td>
+                              <div class="ingredient_container">
+                                <div class="ingredient_name">
+                                  Keto 90 Second Bread
+                                </div>
+                                <div
+                                  class="ingredient_quote"
+                                  style="
+                                    color: rgba(0, 0, 0, 0.4);
+                                    font-size: 14px;
+                                  "
+                                >
+                                  Community Recipes
+                                </div>
+                              </div>
+                              <div class="ingredient_info">
+                                <div class="input-group flex-nowrap">
+                                  <div class="input-group-text portion-number">
+                                    1
+                                  </div>
+                                  <div class="input-group-text portion-info">
+                                    portion (87 grams)
+                                  </div>
+                                  <div class="input-group-text portion-gram">
+                                    87g
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><div class="td-flex-wrapper">301 kcal</div></td>
+                            <td><div class="td-flex-wrapper">27 g</div></td>
+                            <td><div class="td-flex-wrapper">6g</div></td>
+                            <td><div class="td-flex-wrapper">11 g</div></td>
+                            <td class="add_button">
+                              <div>+</div>
+                            </td>
+                          </tr>
+                          <tr class="ingredient_item">
+                            <td>
+                              <div class="ingredient_container">
+                                <div class="ingredient_name">
+                                  Keto - Just Eggs
+                                </div>
+                                <div
+                                  class="ingredient_quote"
+                                  style="
+                                    color: rgba(0, 0, 0, 0.4);
+                                    font-size: 14px;
+                                  "
+                                >
+                                  Community Recipes
+                                </div>
+                              </div>
+                              <div class="ingredient_info">
+                                <div class="input-group flex-nowrap">
+                                  <div class="input-group-text portion-number">
+                                    1
+                                  </div>
+                                  <div class="input-group-text portion-info">
+                                    portion (190 grams)
+                                  </div>
+                                  <div class="input-group-text portion-gram">
+                                    190g
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                            <td><div class="td-flex-wrapper">469 kcal</div></td>
+                            <td><div class="td-flex-wrapper">40 g</div></td>
+                            <td><div class="td-flex-wrapper">7 g</div></td>
+                            <td><div class="td-flex-wrapper">23 g</div></td>
+                            <td class="add_button">
+                              <div>+</div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="page_render btn-group" id="pagin_box">
+                      <button class="page_button" id="pre">
+                        <i class="fa-solid fa-forward fa-flip-horizontal"></i>
+                      </button>
+                      <button class="page_button page_choice">1</button>
+                      <button class="page_button">2</button>
+                      <button class="page_button">3</button>
+                      <button class="page_button">4</button>
+                      <button class="page_button" id="next">
+                        <i class="fa-solid fa-forward"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="left_bottom">
+                <div class="cooking_method_box">
+                  <div class="left_title">
+                    <div style="font-size: 22px; color: black">
+                      Cooking method
+                    </div>
+                    <div>Give instructions to prepare this recipe</div>
+                  </div>
+                  <div class="text_box">
+                    <form id="form_input">
+                      <div class="input-group">
+                        <span class="input-group-text" style="height: 134px"
+                          >1</span
+                        >
+                        <textarea
+                          class="form-control single-break"
+                          id="cookingMethod"
+                          name="description"
+                          rows="5"
+                          placeholder="Add new cooking method"
+                        ></textarea>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom_right">
+              <div class="right_top_box">
+                <div class="right_tittle">
+                  <div style="font-size: 22px">Global analysis per portion</div>
+                  <div style="color: #888888">
+                    Energy, macronutrients and fiber distribution
+                  </div>
+                </div>
+                <div class="message_box">
+                  <img src="../../assets/message.svg" alt="" />
+                </div>
+                <div class="energy">
+                  <div>Energy</div>
+                  <div style="font-weight: 600">
+                    40 <span style="font-weight: 400">kcal</span>
+                  </div>
+                </div>
+
+                <div class="macronutrients">
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #f3f3f4">
+                      0g
+                    </div>
+                    <div style="font-weight: 300">Fat</div>
+                  </div>
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #ea9f77">
+                      11g
+                    </div>
+                    <div style="font-weight: 300">Carbohydrate</div>
+                  </div>
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #f3f3f4">
+                      0g
+                    </div>
+                    <div style="font-weight: 300">Protein</div>
+                  </div>
+                  <div class="item">
+                    <div class="status" style="border: 5px solid #6a7d93">
+                      1g
+                    </div>
+                    <div style="font-weight: 300">Fiber</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="right_mid_box">
+                <div class="mid_title">
+                  <div style="font-size: 22px">Macronutrients per portion</div>
+                  <div style="color: #888888">
+                    Macronutrients distribution of the recipe
+                  </div>
+                </div>
+                <canvas id="myPieChart"></canvas>
+              </div>
+
+              <div class="right_bottom_box">
+                <div class="bottom_title">
+                  <div style="font-size: 22px">Macronutrients per portion</div>
+                  <div style="color: #888888">
+                    Macronutrients distribution of the recipe
+                  </div>
+                </div>
+                <table>
+                  <tr>
+                    <td>
+                      <div>Sodium</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin A</div>
+                      <div><span style="font-weight: 800">4</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin B-6</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin B-12</div>
+                      <div><span style="font-weight: 800">0</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin C</div>
+                      <div><span style="font-weight: 800">14</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin D (D2 + D3)</div>
+                      <div><span style="font-weight: 800">0</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin E</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Vitamin K</div>
+                      <div><span style="font-weight: 800">1</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Sugars</div>
+                      <div><span style="font-weight: 800">9</span> g</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Calcium</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Iron</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Magnesium</div>
+                      <div><span style="font-weight: 800">4</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Phosphorus</div>
+                      <div><span style="font-weight: 800">10</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Potassium</div>
+                      <div><span style="font-weight: 800">124</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Zinc</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Copper</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Fluoride</div>
+                      <div><span style="font-weight: 800">49</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Manganese</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Selenium</div>
+                      <div><span style="font-weight: 800">0</span> ug</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Thiamin</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Riboflavin</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Niacin</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Pantothenic acid</div>
+                      <div><span style="font-weight: 800">0</span> mg</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>Folate, total</div>
+                      <div><span style="font-weight: 800">2</span> ug</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js
+    "></script>
+    <script src="../../main.js"></script>
+    <script src="./add.js"></script>
+  </body>
+</html>
